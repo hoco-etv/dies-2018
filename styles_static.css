@@ -24,6 +24,8 @@ background {
     font-size: 5em;
     color: #2bbfe2;
     font-family:Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Verdana,' sans-serif';
+	max-width: 60vw;
+	margin: 0 auto;
 }
 
 .burger {
