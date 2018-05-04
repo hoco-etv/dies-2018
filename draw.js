@@ -7,7 +7,8 @@ $(document).ready(function(){
 		startTime = 5000,
 		startTimer,
 		userInitiated = 1,
-		body = $("html, body");
+		body = $("html, body"),
+		dichttiks;
 	
 	var end = Date.UTC(2018, 4, 14, 11,21,12), // Bravo 112!
 			h1 = document.getElementById('countdown');
@@ -20,7 +21,7 @@ $(document).ready(function(){
 				h = Math.floor((diff-(y*3600*24*7*52)-(w*3600*24*7)-(d*3600*24))/(3600)),
 				m = Math.floor((diff-(y*3600*24*7*52)-(w*3600*24*7)-(d*3600*24)-(h*3600))/(60)),
 				s = Math.floor((diff-(y*3600*24*7*52)-(w*3600*24*7)-(d*3600*24)-(h*3600)-(m*60))/(1));
-			console.log("years: "+y+" Weeks: "+w+" Days: "+d+" Hours: "+h+" Minutes: "+m+" Seconds: "+s);
+//			console.log("years: "+y+" Weeks: "+w+" Days: "+d+" Hours: "+h+" Minutes: "+m+" Seconds: "+s);
 			h1.textContent = "Nog " + (w > 1 ? w+' weken, ' : (w>0 ? w + ' week, ' : '')) + (d > 1 ? d + ' dagen, ' : (d > 0 ? d + ' dag, ' : (w>0 ? '0 dagen' : ''))) + (h > 0 ? h + ' uur, ' : (d>0||w>0 ? '0 uur, ' : ''))+ (m > 1 ? m + ' minuten, ' : (m > 0 ? m + ' minuut, ' : (w>0||d>0||h>0 ? '0 minuten, ' : ''))) + '(112' + (s-112) + ') seconden';
 			setTimeout(f, 1e3);
 		})();
@@ -50,7 +51,8 @@ $(document).ready(function(){
 		if(userInitiated){
 			clearInterval(startTimer);
 		}
-		console.log('You see me scrolling...'+($win.scrollTop()/($(document).height()*0.89)));
+		dichttiks = Math.round(($win.scrollTop()/($(document).height()*0.89)*600));
+		console.log('You see me scrolling...  '+(dichttiks==112 ? 'Bravo 112! ' : dichttiks));
 		p = ($win.scrollTop()-winHeight)/(0.85*($(document).height()-winHeight))*6;
 		if(p<1){
 			if(!started[0]){svg[0].drawsvg('animate');
