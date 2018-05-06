@@ -22,7 +22,7 @@ $(document).ready(function(){
 				m = Math.floor((diff-(y*3600*24*7*52)-(w*3600*24*7)-(d*3600*24)-(h*3600))/(60)),
 				s = Math.floor((diff-(y*3600*24*7*52)-(w*3600*24*7)-(d*3600*24)-(h*3600)-(m*60))/(1));
 //			console.log("years: "+y+" Weeks: "+w+" Days: "+d+" Hours: "+h+" Minutes: "+m+" Seconds: "+s);
-			h1.textContent = "Nog " + (w > 1 ? w+' weken, ' : (w>0 ? w + ' week, ' : '')) + (d > 1 ? d + ' dagen, ' : (d > 0 ? d + ' dag, ' : (w>0 ? '0 dagen' : ''))) + (h > 0 ? h + ' uur, ' : (d>0||w>0 ? '0 uur, ' : ''))+ (m > 1 ? m + ' minuten, ' : (m > 0 ? m + ' minuut, ' : (w>0||d>0||h>0 ? '0 minuten, ' : ''))) + '(112' + (s-112) + ') seconden';
+			h1.textContent = "Nog " + (w > 1 ? w+' weken, ' : (w>0 ? w + ' week, ' : '')) + (d > 1 ? d + ' dagen, ' : (d > 0 ? d + ' dag, ' : '')) + (h > 0 ? h + ' uur, ' : (d>0||w>0 ? '0 uur, ' : ''))+ (m > 1 ? m + ' minuten, ' : (m > 0 ? m + ' minuut, ' : (w>0||d>0||h>0 ? '0 minuten, ' : ''))) + '(112' + (s-112) + ') seconden';
 			setTimeout(f, 1e3);
 		})();
 	
