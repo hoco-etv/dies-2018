@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	padding:0;
 	border: 0;
-	background-color: #00204a;
+	background-color: #5B318C;
 	overflow-x: hidden;
 }
 
@@ -23,7 +23,7 @@ background {
 
 .burger h1 {
     font-size: 4.3em;
-    color: #2bbfe2;
+    color: #DAB738;
     font-family:Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Verdana,' sans-serif';
 	max-width: 60vw;
 	margin: 0 auto;
