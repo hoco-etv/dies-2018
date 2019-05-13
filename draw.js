@@ -1,17 +1,17 @@
 $(document).ready(function(){
 	var svg = [],
 		$win = $(window),
-        winHeight = window.innerHeight,
+		winHeight = window.innerHeight,
 		started = [0,0,0,0,0,0],
 		p,
-		startTime = 5000,
+		startTime = 500,
 		startTimer,
 		userInitiated = 1,
 		body = $("html, body"),
 		dichttiks;
 	
-	var end = new Date(1557743931612), //Date.UTC(2019,4, 13, 12,30,0), // Bravo 113!
-			h1 = document.getElementById('countdown');
+	// var end = new Date(1557743931612), //Date.UTC(2019,4, 13, 12,30,0), // Bravo 113!
+	// 		h1 = document.getElementById('countdown');
 		// console.log(end);
 // 		(function f() {
 // 			var diff = (end - Date.now())/1e3,
@@ -40,43 +40,58 @@ $(document).ready(function(){
 	//svg[10] = $("#_x3C_footer_x3E_").drawsvg();
 	//svg[11] = $("#footer").drawsvg();
 	
-	startTimer = setInterval(function(){
+	startTimer = setTimeout(function(){
 		$win.scrollTop(winHeight);
-		body.stop().animate({scrollTop:$(document).height()}, 35000, 'swing', function() {
-			$win.scrollTop(winHeight);
+		body.stop().animate({
+			scrollTop: $(document).height() - winHeight
+		}, 25000, 'swing', function() {
+			// $win.scrollTop(winHeight);
+			body.stop().animate({
+				scrollTop: winHeight
+			}, 3000, 'swing', function() {
+			});
 		});
 	}, startTime);
-    
-    $win.on('scroll', function() {
-		if(userInitiated){
-			clearInterval(startTimer);
-		}
-		dichttiks = Math.round(($win.scrollTop()/($(document).height()*0.89)*600));
-		console.log('You see me scrolling...  '+(dichttiks==113 ? 'Bravo 113! ' : dichttiks));
-		p = ($win.scrollTop()-winHeight)/(0.85*($(document).height()-winHeight))*6;
-		//if(p<1){
-		//	if(!started[0]){svg[0].drawsvg('animate');
-		//					svg[5].drawsvg('animate')};
-		//	started[0] = 1;
-		//}else if(p<2){
-		//	if(!started[1]){svg[1].drawsvg('animate');
-		//					svg[6].drawsvg('animate')};
-		//	started[1] = 1;
-		//} else if(p<3){
-		//	if(!started[2]){svg[2].drawsvg('animate');
-		//					svg[7].drawsvg('animate')};
-		//	started[2] = 1;
-		//}else if(p<4){
-		//	if(!started[3]){svg[3].drawsvg('animate');
-		//					svg[8].drawsvg('animate')};
-		//	started[3] = 1;
-		//}else if(p<5){
-		//	if(!started[4]){svg[4].drawsvg('animate');
-		//					svg[9].drawsvg('animate')};
-		//	started[4] = 1;
-		//}else if(p<6){
-		//	if (!started[5]) {svg[10].drawsvg('animate');svg[11].drawsvg('animate');};
-		//	started[5] = 1;
-		//}
-    });
+		
+	$(window).on('mousewheel', function(){
+		clearTimeout(startTimer);
+		body.stop(true);
+	});
+
+	// body.on('scroll', function(event) {
+	// 	if($(this).is(':animated')) {
+	// 		// clearTimeout(startTimer);
+	// 		// body.stop(true);
+	// 	} else if (event.originalEvent) {
+			
+	// 		console.log(event.originalEvent);
+	// 	}
+	// 	// dichttiks = Math.round(($win.scrollTop()/($(document).height()*0.89)*600));
+	// 	// console.log('You see me scrolling...  '+(dichttiks==113 ? 'Bravo 113! ' : dichttiks));
+	// 	// p = ($win.scrollTop()-winHeight)/(0.85*($(document).height()-winHeight))*6;
+	// });
+			//if(p<1){
+			//	if(!started[0]){svg[0].drawsvg('animate');
+			//					svg[5].drawsvg('animate')};
+			//	started[0] = 1;
+			//}else if(p<2){
+			//	if(!started[1]){svg[1].drawsvg('animate');
+			//					svg[6].drawsvg('animate')};
+			//	started[1] = 1;
+			//} else if(p<3){
+			//	if(!started[2]){svg[2].drawsvg('animate');
+			//					svg[7].drawsvg('animate')};
+			//	started[2] = 1;
+			//}else if(p<4){
+			//	if(!started[3]){svg[3].drawsvg('animate');
+			//					svg[8].drawsvg('animate')};
+			//	started[3] = 1;
+			//}else if(p<5){
+			//	if(!started[4]){svg[4].drawsvg('animate');
+			//					svg[9].drawsvg('animate')};
+			//	started[4] = 1;
+			//}else if(p<6){
+			//	if (!started[5]) {svg[10].drawsvg('animate');svg[11].drawsvg('animate');};
+			//	started[5] = 1;
+			//}
 });
